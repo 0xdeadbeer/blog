@@ -9,5 +9,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
           api_token: ${{ secrets.NEOCITIES_API_KEY }}
-          dist_dir: ./
+          dist_dir: src
           cleanup: true
