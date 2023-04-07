@@ -5,9 +5,8 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps: 
-      - uses: bcomnes/deploy-to-neocities@v1
+      - uses: bcomnes/deploy-neocities@v1
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
-          api_token: ${{ secrets.NEOCITIES_API_KEY }}
-          dist_dir: ../src
-          cleanup: true
+          neocities_token: ${{ secrets.NEOCITIES_API_KEY }}
+          directory: 'src/'
