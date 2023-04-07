@@ -5,8 +5,10 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps: 
-      - uses: kognise/neocities-deploy-action@v1
+      - uses: actions/checkout@v1
+      - uses: bcomnes/deploy-to-neocities@v1
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
-          neocities_token: ${{ secrets.NEOCITIES_API_KEY }}
-          directory: 'src/'
+          api_token: ${{ secrets.NEOCITIES_API_KEY }}
+          cleanup: true
+          dist_dir: src
