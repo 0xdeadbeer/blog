@@ -1,0 +1,20 @@
+baseURL = "https://0xdeadbeer.neocities.org"
+title = "0xdeadbeer"
+theme = "ficurinia"
+
+languageCode = "en"
+defaultContentLanguage = "en"
+
+copyright = "Kevin Jerebica 2022"
+
+[params]
+    author = "Kevin Jerebica"
+    description = "Coding, Cyber Security, Unix, Psychology, Japan 🤍"
+    posts = "posts"
+
+    logo = "/logo-scaled.png"
+    favicon = "/logo-scaled.png"
+    faviconIco = "/logo-scaled.png"
+    appletouch = "/logo-scaled.png"
+    svgicon = "/logo-scaled.png"
+    icon512 = "/logo-scaled.png"

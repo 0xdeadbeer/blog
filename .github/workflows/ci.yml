@@ -6,9 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v1
+      - name: build 
+        run: hugo --minify
       - uses: bcomnes/deploy-to-neocities@v1
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
           api_token: ${{ secrets.NEOCITIES_API_KEY }}
           cleanup: true
-          dist_dir: src
+          dist_dir: public
