@@ -10,9 +10,8 @@ jobs:
         uses: peaceiris/actions-hugo@v2
       - name: build 
         run: hugo --minify
-      - uses: bcomnes/deploy-to-neocities@v1
+      - uses: kognise/neocities-deploy-action@v1
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
-          api_token: ${{ secrets.NEOCITIES_API_KEY }}
-          cleanup: true
-          dist_dir: public
+          neocities_token : ${{ secrets.NEOCITIES_API_KEY }}
+          directory: 'public/'
