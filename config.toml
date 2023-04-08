@@ -18,3 +18,16 @@ copyright = "Kevin Jerebica 2022"
     appletouch = "/logo-scaled.png"
     svgicon = "/logo-scaled.png"
     icon512 = "/logo-scaled.png"
+
+    imageInArticlePreview = true
+
+[menu]
+    [[menu.icons]]
+        identifier = "github"
+        name = "Github"
+        url = "https://github.com/0xdeadbeer"
+        weight = 10
+    [[menu.icons]]
+        identifier = "youtube"
+        name = "Youtube"
+        url = "https://youtube.com/@0xdeadbeer"
