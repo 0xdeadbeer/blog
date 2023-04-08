@@ -9,7 +9,7 @@ jobs:
       - name: setup hugo 
         uses: peaceiris/actions-hugo@v2
       - name: build 
-        run: hugo --minify
+        run: hugo 
       - uses: bcomnes/deploy-to-neocities@v1
         if: ${{ github.ref == 'refs/heads/main' }}
         with: 
