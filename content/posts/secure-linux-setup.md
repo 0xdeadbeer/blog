@@ -24,7 +24,7 @@ After you get a job, mature, realize how cruel the world is, you'll start caring
 
 Let's talk ~~basics~~ passwords. They're not that simple to deal with. I know that. We all do. And so, let's facilitate it to a concept that you're already familiar with - Password Managers. 
 No, I'm not going to be selling you a Password Manager, or telling you about this awesome service that helped me stay secure for the past X years. Keeping your credentials on a third-party service is not even a good option - as you can see [here](https://www.youtube.com/watch?v=cRsn0PlnuvM). 
-I'm going to give you an open-source tool that has made my life eaiser when dealing with passwords. You're free to find alternatives, but for me, this was the best I able to find. 
+I'm going to give you an open-source tool that has made my life eaiser when dealing with passwords. You're free to find alternatives, but for me, this was the best I was able to find. 
 
 It's called [KeePassXC](https://keepassxc.org/). It's cross-platform and you can run it on Linux - which is exactly what we needed. Passwords are stored in a file called a *Database* which contains groups. 
 A group can either contain more groups, or simply passwords. The whole database is by default encrypted with the industry-standard AES256 and a key provided by the user (make sure it's a long one that you can remember).
