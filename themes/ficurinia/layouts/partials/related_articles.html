@@ -1,0 +1,23 @@
+{{ if and (.Site.Params.enableRelatedArticles | default false) .Params.tags }}
+    {{ $postsList :=
+        where (
+            where (
+                where site.RegularPages "Params.tags" "!=" nil
+            ) "Params.tags" "intersect" .Params.tags
+        ) "Permalink" "ne" .Permalink
+    }}
+    {{ if $postsList }}
+        {{ if site.Params.randomRelated | default false }}
+            {{ $postsList = shuffle $postsList }}
+        {{ end }}
+        <div class="relatedArticlesContainer">
+            <hr />
+            <h2>{{ i18n "morePostsLikeThis" }}</h2>
+            <div class="postlist {{ if .Site.Params.gridView }}gridView{{ end }}">
+                {{ range first (.Site.Params.relatedArticlesNum | default 2) $postsList }}
+                    {{- partial "article_card.html" . -}}
+                {{ end }}
+            </div>
+        </div>
+    {{ end }}
+{{ end }}

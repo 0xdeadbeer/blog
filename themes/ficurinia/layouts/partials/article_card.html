@@ -1,0 +1,42 @@
+<article class="card postlistitem">
+    <div>
+        <h2>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <p class="date">
+            <span title='{{ i18n "date" }}'> </span>
+            {{- partial "date.html" .Date -}}
+            {{ if and (site.Params.tagsInArticlePreview | default true) .Params.tags }}
+                | <!-- Pipe character as visual separator between date and tags-->
+                <span title='{{ i18n "tags" }}'> </span>
+                {{ range sort .Params.tags }}
+                    <a href="/tags/{{ . | urlize }}">#{{ . }}</a>
+                {{ end }}
+            {{ end }}
+        </p>
+        {{ if .Site.Params.imageInArticlePreview }}
+            {{ if .Params.Image }}
+                <a class="unstyledLink" href="{{ .Permalink }}">
+                    {{ if or (hasPrefix .Params.Image "/") (hasPrefix .Params.Image "http://") (hasPrefix .Params.Image "https://") }}
+                        <img src="{{ .Params.Image }}" alt="{{ .Params.Alt }}" />
+                    {{ else }}
+                        <img src="{{ .Permalink }}/{{ .Params.Image }}" alt="{{ .Params.Alt }}" />
+                    {{ end }}
+                </a>
+            {{ end }}
+        {{end}}
+        {{ if (site.Params.articleSummary | default true) }}
+            <div class="articlePreview">
+                <p>
+                    {{ if .Params.description }}
+                        {{ .Params.description }}
+                    {{ else }}
+                        {{.Summary }}
+                    {{ end }}
+                </p>
+                <p><a href="{{ .Permalink }}">{{ i18n "continueReading" }} </a></p>
+            </div>
+        {{ end }}
+    </div>
+    <hr />
+</article>

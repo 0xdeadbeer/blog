@@ -1,0 +1,45 @@
+{{ if site.Params.enableShareOnFediverse | default false }}
+    <a style="margin-bottom: 24px; display: inline-block;" class="shareBtn" onclick="openFediInstanceDialog();">
+        {{ i18n "shareOnTheFediverse" }}
+    </a>
+    <div id="fediInstanceDialog">
+        <div class="bg" onclick="closeFediInstanceDialog();"></div>
+        <div class="dialog">
+            <h2>{{ i18n "enterFediverseInstanceAddress" }}</h2>
+            <input id="fediInstanceInput" placeholder='{{ i18n "fediverseInstanceExample" }}' type="text" />
+            <div class="buttons">
+                <a class="shareBtn" onclick="closeFediInstanceDialog();">{{ i18n "cancel" }}</a>
+                <a class="shareBtn" onclick="shareOnFedi();">{{ i18n "share" }}</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        var articleTitle = '{{ .Title }}';
+        var articleLink = '{{ .Permalink }}';
+        var fediInstanceDialog = document.getElementById('fediInstanceDialog');
+        var fediInstanceInput = document.getElementById('fediInstanceInput');
+        function openFediInstanceDialog() {
+            fediInstanceDialog.classList.add('open');
+        }
+        function closeFediInstanceDialog() {
+            fediInstanceDialog.classList.remove('open');
+        }
+        function fixURL(url) {
+            if (url.substr(0, 8) == 'https://') return url;
+            if (url.substr(0, 7) == 'http://') return url;
+            return 'https://' + url;
+        }
+        function shareOnFedi() {
+            let instance = fediInstanceInput.value.trim();
+            if (!instance) {
+                return;
+            }
+            instance = fixURL(instance);
+            window.open(
+                `${instance}/share?text=${articleTitle}%20${articleLink}`,
+                '__blank'
+            );
+            closeFediInstanceDialog();
+        }
+    </script>
+{{ end }}

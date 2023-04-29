@@ -1,0 +1,44 @@
+<head>
+    {{ if .Site.Params.forceRedirect }}
+        <script>
+            if (location.host != new URL("{{ .Site.BaseURL }}").host) location.href = "{{ .Site.BaseURL }}"
+        </script>
+    {{ end }}
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+    {{ if .OutputFormats.Get "RSS" }}
+        {{ with .OutputFormats.Get "RSS" }}
+          <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+          <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
+        {{ end }}
+    {{ end }}
+
+    {{- partial "head_icons.html" . -}}
+
+    <title>
+        {{ if and (.Title) (ne .Title .Site.Title) }}
+            {{ .Title }}  &ndash;
+        {{ end }}
+        {{ .Site.Title | default "Ficurinia" }}
+    </title>
+
+    {{/*
+        how to update these hashes:
+        https://gitlab.com/gabmus/hugo-ficurinia/-/merge_requests/5
+    */}}
+    <link href="/symbols-nerd-font/symbols-nerd-font.css" rel="stylesheet" integrity="sha512-lydow8GLOLlYNOtHlksNCmGWWCBsbIEtikXpHzfWqx78HLlyQZHOzyLwPpKol4Th6aCwLUXOfODVYgwrd3nwKQ=="/>
+    <link href="/jetbrains-mono/jetbrains-mono.css" rel="stylesheet" integrity="sha512-tJxlgL6v1Y7kFf+qB8SloaAMKnOAw6WouknxXtIjkBux9Y/9aX81EUWOJO8c/3l98DmjG8brr4to7zaez606Fg=="/>
+
+    {{ if and site.Params.cactusCommentsSiteName (.Params.comments | default true) }}
+        <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+    {{ end }}
+    {{ $style := resources.Get "/scss/style.scss" | resources.ExecuteAsTemplate "/scss/style.scss" . | resources.ToCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") | resources.Fingerprint "sha512" }}
+    <link type="text/css" rel="stylesheet" href={{ $style.Permalink }} integrity="{{ $style.Data.Integrity }}" />
+    {{- partial "inject/head.html" . -}}
+    {{- partial "head_meta_seo.html" . -}}
+    {{- partial "head_meta_opengraph.html" . -}}
+    {{- partial "head_meta_twitter.html" . -}}
+    <link rel="manifest" href="/manifest/index.json" />
+</head>

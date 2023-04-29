@@ -1,0 +1,33 @@
+{{ $h265 := .Get "h265" }}
+{{ $h264 := .Get "h264" }}
+{{ $vp9 := .Get "vp9" }}
+{{ $vp8 := .Get "vp8" }}
+{{ $caption := .Get "caption" }}
+{{ $attr := .Get "attr" }}
+{{ $attrlink := .Get "attrlink" }}
+<figure>
+    <video autoplay loop controls style="max-width: 100%;">
+        {{ if $h265 }}
+            <source src='{{ $h265 }}' type="video/mp4" />
+        {{ end }}
+        {{ if $h264 }}
+            <source src='{{ $h264 }}' type="video/mp4" />
+        {{ end }}
+        {{ if $vp9 }}
+            <source src='{{ $vp9 }}' type="video/webm" />
+        {{ end }}
+        {{ if $vp8 }}
+            <source src='{{ $vp8 }}' type="video/webm" />
+        {{ end }}
+    </video>
+    {{ if or $caption $attr }}
+        <figcaption>
+            {{ if $caption }}
+                <p>{{ . }}</p>
+            {{ end }}
+            <p>
+                {{ if $attrlink }}<a href="{{ $attrlink }}">{{ end }}{{ $attr }}{{ if $attrlink }}</a>{{ end }}
+            </p>
+        </figcaption>
+    {{ end }}
+</figure>

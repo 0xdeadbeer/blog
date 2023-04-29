@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "{{ .Site.Title }}",
+  "short_name": "{{ .Site.Title }}",
+  "start_url": "/",
+  "display": "standalone",
+  {{ $bg := (.Site.Data.colors.dark.bg | default "#242629") }}
+  {{ $accent := (.Site.Data.colors.dark.accent | default "#db5793") }}
+  {{ if eq .Site.Data.colors.default "light" }}
+    {{ $bg = (.Site.Data.colors.light.bg | default "#f5f5f5") }}
+    {{ $accent = (.Site.Data.colors.light.accent | default "#db5793") }}
+  {{ end }}
+  "background_color": "{{ $bg }}",
+  "theme_color": "{{ $accent }}"
+  {{ if .Site.Params.description }}
+    ,
+    "description": "{{ .Site.Params.description }}"
+  {{ end }}
+  {{ if .Site.Params.icon512 }}
+    ,
+    "icons": [
+      {
+        "src": "{{ .Site.Params.icon512 }}",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      },
+      {
+        "src": "{{ .Site.Params.icon512 }}",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      }
+    ]
+  {{ end }}
+}
+

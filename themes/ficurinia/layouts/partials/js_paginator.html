@@ -1,0 +1,47 @@
+<script>
+    function renderTags(tags) {
+        if (tags.length <= 0) return '';
+        let res = `| <span title='{{ i18n "tags" | safeJS }}'> </span>`;
+        for (let tag of tags) {
+            //                                        regular space
+            res += `<a href="/tags/${tag}">#${tag}</a>&#32;`;
+        }
+        return res;
+    }
+    function renderImage(image, link, alt) {
+        if (!image) return '';
+        return `<a href="${link}"><img src="${image}" alt="${alt}" /></a>`;
+    }
+    function renderSingleArticle(article) {
+        return `
+        <article class="card postlistitem">
+            <div>
+                <h2>
+                    <a href="${article.link}">${article.title}</a>
+                </h2>
+                <p class="date">
+                    <span title='{{ i18n "date" | safeJS }}'> </span>
+                    ${article.date}
+                    {{ if (.Site.Params.tagsInArticlePreview | default true) }}
+                        ${renderTags(article.tags)}
+                    {{ end }}
+                </p>
+                {{ if .Site.Params.imageInArticlePreview }}
+                    ${renderImage(article.image, article.link, article.imageAlt)}
+                {{ end }}
+                {{ if (site.Params.articleSummary | default true) }}
+                    <div class="articlePreview">
+                        <p>${article.summary}</p>
+                        <p><a href="${article.link}">{{ i18n "continueReading" | safeJS }} </a></p>
+                    </div>
+                {{ end }}
+            </div>
+            <hr />
+        </article>
+        `;
+    }
+    function renderArticles(articles) {
+        let rendered = articles.map(a => renderSingleArticle(a)).join('\n');
+        document.getElementById('postlist').innerHTML += rendered;
+    }
+</script>

@@ -1,0 +1,19 @@
+<a
+    {{ if eq (lower .Identifier) "mastodon" }}
+        rel="me"
+    {{ else }}
+        rel="noreferrer"
+    {{ end }}
+    target="_blank"
+    class="nerdlink"
+    href="{{ .URL | safeURL }}">
+    {{ $icon := index site.Data.supported_icons (lower .Identifier) | safeHTML }}
+    {{ if $icon }}
+        {{ $icon | safeHTML }}
+    {{ else }}
+        {{ .Name }}
+    {{ end }}
+    <span>
+        {{ .Name }}
+    </span>
+</a>

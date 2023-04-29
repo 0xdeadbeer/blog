@@ -1,0 +1,66 @@
+{{ if .Site.Params.infiniteScrolling }}
+{{- partial "js_paginator.html" . -}}
+    <script>
+        var nextPage = '/index.json';
+        function getNext(first=false) {
+            if (!nextPage) return;
+            fetch(nextPage).then(res => res.json())
+            .then(res => {
+                nextPage = res['next'];
+                if (first) {
+                    document.getElementById('getNextBtnContainer').innerHTML += `
+                       <div class="loadMoreButton {{ if eq .Site.Params.navtype "circles"}}buttonLike{{ end }}">
+                            <a style="cursor: pointer" onclick="getNext();">
+                                Load more articles
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                if (!nextPage) document.getElementById('getNextBtnContainer').innerHTML = '';
+                renderArticles(res['articles']);
+            });
+        }
+        getNext(true);
+    </script>
+{{ end }}
+{{ if .Site.Params.infiniteScrolling }}<noscript>{{ end }}
+{{ if gt .Paginator.TotalPages 1 }}
+    {{ $navtype := .Site.Params.Navtype }}
+    <div id="pageNavigation" class='
+            {{ if eq $navtype "circles" }}
+                nav-circles
+            {{ end }}
+    '>
+        {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.Prev.URL }}" title='{{ i18n "previousPage" }}'>
+                {{ if eq $navtype "circles" }}
+                    ←
+                {{ else }}
+                    &lt;&lt;&lt;
+                {{ end }}
+            </a>
+        {{ end }}
+        {{ $currentPage := .Paginator.PageNumber }}
+        {{ range .Paginator.Pagers }}
+            {{ if ne .PageNumber $currentPage }}
+                <a href="{{ .URL }}">{{ .PageNumber }}</a>
+            {{ else }}
+            <span>
+                {{ if eq $navtype "circles" }}{{ .PageNumber }}
+                {{ else }}[{{ .PageNumber }}]{{ end }}
+            </span>
+            {{ end }}
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.Next.URL }}" title='{{ i18n "nextPage" }}'>
+                {{ if eq $navtype "circles" }}
+                    →
+                {{ else }}
+                    &gt;&gt;&gt;
+                {{ end }}
+            </a>
+        {{ end }}
+    </div>
+{{ end }}
+{{ if .Site.Params.infiniteScrolling }}</noscript>{{ end }}

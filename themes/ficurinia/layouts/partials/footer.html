@@ -1,0 +1,11 @@
+<footer>
+    <hr />
+    {{- partial "inject/footer.html" . -}}
+    {{- partial "footer_columns.html" . -}}
+    <p><small>
+        {{ now.Format "2006" }} &copy; {{ .Site.Copyright | markdownify }}
+    </small></p>
+    <p><small>
+        {{ i18n "themeCopyrightNotice" | safeHTML }}
+    </small></p>
+</footer>

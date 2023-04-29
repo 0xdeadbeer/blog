@@ -1,0 +1,30 @@
+<nav>
+    {{ if (.Site.Params.mobileHamburgerNav | default false) }}
+        <input type="checkbox" id="main-nav-toggler" />
+    {{ end }}
+    <ul id="main-nav">
+        <li><a href="/">{{ i18n "home" }}</a></li>
+        {{ if (.Site.Params.showPostsLink | default true) }}
+            <li><a href="/posts">{{ i18n "posts" }}</a></li>
+        {{ end }}
+        {{ range site.Params.extraContentDirs }}
+            <li><a href="/{{ . }}">{{ . | humanize }}</a></li>
+        {{ end }}
+        {{ $pagesDir := .Site.Params.Pages | default (slice "pages") }}
+        {{ $pagesList := where .Site.RegularPages "Section" "in" $pagesDir }}
+        {{ range $pagesList }}
+            <li><a href="{{ .Permalink }}">
+                {{ or .Params.Button .Title }}
+            </a></li>
+        {{ end }}
+        {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
+        {{ end }}
+        {{ if (.Site.Params.showTags | default true) }}
+            <li><a href="/tags">{{ i18n "tags" }}</a></li>
+        {{ end }}
+        {{ if and (.Site.Params.searchMenuLink | default false) (.Site.Params.enableSearch | default true) }}
+            <li><a href="/search">{{ i18n "search" }}</a></li>
+        {{ end }}
+    </ul>
+</nav>

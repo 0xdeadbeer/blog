@@ -1,0 +1,27 @@
+{{ define "main" }}
+{
+    {{ $mscratch := newScratch }}
+    {{ $mscratch.Add "articles" slice }}
+    {{ $pages := where .Site.RegularPages "Params.nosearch" "!=" "true" }}
+    {{ range $pages }}
+        {{ $image := "" }}
+        {{ if .Params.Image }}
+            {{ if or (hasPrefix .Params.Image "/") (hasPrefix .Params.Image "http://") (hasPrefix .Params.Image "https://") }}
+                {{ $image = .Params.Image }}
+            {{ else }}
+                {{ $image = print .Permalink "/" .Params.Image }}
+            {{ end }}
+        {{ end }}
+        {{ $mscratch.Add "articles" (dict
+            "title" .Title
+            "date" (.Date.Format "2006-01-02")
+            "tags" (sort (or .Params.tags slice))
+            "summary" (or .Params.description .Summary)
+            "text" (lower .Plain)
+            "link" .Permalink
+            "image" $image
+            "imageAlt" (or .Params.Alt "")) }}
+    {{ end }}
+    "pages": {{ $mscratch.Get "articles" | jsonify }}
+}
+{{ end }}

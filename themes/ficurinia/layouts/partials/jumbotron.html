@@ -1,0 +1,89 @@
+{{ if and .IsHome (and (.Site.Params.enableJumbotron | default false) .Site.Data.jumbotron) }}
+    {{
+        $jumbo_fullscreen := (or 
+            (.Site.Data.jumbotron.fullscreen | default false)
+            (.Site.Data.jumbotron.backgroundVideo)
+        )
+    }}
+    {{ if .Site.Data.jumbotron.backgroundVideo }}
+        <div class="video_container">
+            <video
+                class="jumbotron_video"
+                id="jumbotron_video"
+                src="{{ .Site.Data.jumbotron.backgroundVideo }}"
+                playsinline
+                autoplay mute loop>
+                    {{ if .Site.Data.jumbotron.backgroundVideoMp4 }}
+                        <source src="{{ .Site.Data.jumbotron.backgroundVideoMp4 }}" type="video/mp4">
+                    {{ end }}
+                    {{ if .Site.Data.jumbotron.backgroundVideoWebm }}
+                        <source src="{{ .Site.Data.jumbotron.backgroundVideoWebm }}" type="video/webm">
+                    {{ end }}
+            </video>
+        </div>
+    {{ end }}
+    <div class="jumbotron">
+        {{ if .Site.Data.jumbotron.image }}
+            <img src="{{ .Site.Data.jumbotron.image }}" />
+        {{ end }}
+        <div class="main_box">
+            <h2 class="
+                {{ if (.Site.Data.jumbotron.hugeTitle | default false) }}
+                    huge
+                {{ end }}
+            ">{{ .Site.Data.jumbotron.title }}</h2>
+            <h3>{{ .Site.Data.jumbotron.subtitle }}</h3>
+            {{ if .Site.Data.jumbotron.backgroundVideo }}
+                <ul id="play_button_container" style="display: none">
+                    <li>
+                        <a title="Play" style="border-radius: 100%; width: 32px; height: 32px; display: flex; justify-content: center; align-items: center;" class="shareBtn" onclick="playvideo();">  </a>
+                    </li>
+                </ul>
+                <script>
+                    var jumbotron_video = document.getElementById('jumbotron_video');
+                    var play_button_container = document.getElementById('play_button_container');
+                    window.onload = function() {
+                        setTimeout(function() {
+                            if (jumbotron_video.paused) {
+                                play_button_container.style.display = 'block';
+                            }
+                        }, 1000);
+                    };
+                    function playvideo() {
+                        jumbotron_video.play();
+                        play_button_container.style.display = 'none';
+                    }
+                </script>
+            {{ end }}
+            {{ if .Site.Data.jumbotron.links }}
+                <ul>
+                    {{ range .Site.Data.jumbotron.links }}
+                        <li>
+                            <a class="{{ if .huge }}huge{{ end }}" href="{{ .link | safeURL }}">
+                                {{ .title }}
+                            </a>
+                        </li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+        </div>
+    </div>
+    {{ if (
+        and
+            $jumbo_fullscreen
+            (.Site.Data.jumbotron.downArrow | default false)
+    ) }}
+        <div class="arrow" onclick="jumpdown();">
+            <svg version="1.1" viewBox="0 0 33.867 33.867" xmlns="http://www.w3.org/2000/svg">
+             <path transform="scale(.26459)" d="m16 34.346v8c0 2.3545 1.0067 4.4663 2.6152 5.9277l45.385 45.385 45.385-45.385c1.6086-1.4614 2.6152-3.5732 2.6152-5.9277v-8h-8c-2.335 0-4.4287 0.99084-5.8887 2.5762l-0.037109 0.039063-34.074 34.074-34.074-34.074c-0.012103-0.013323-0.024917-0.025824-0.037109-0.039063-1.4599-1.5853-3.5537-2.5762-5.8887-2.5762h-8z" />
+            </svg>
+        </div>
+        <script>
+            function jumpdown() {
+                window.scrollTo({
+                    top: window.innerHeight, left: 0, behavior: 'smooth'
+                });
+            }
+        </script>
+    {{ end }}
+{{ end }}

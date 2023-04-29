@@ -1,0 +1,44 @@
+{{ define "main" }}
+<noscript>
+    You need to enable JavaScript to be able to search.
+</noscript>
+{{- partial "searchbar.html" . -}}
+<div class="postlist {{ if .Site.Params.gridView }}gridView{{ end }}" id="postlist">
+</div>
+{{- partial "js_paginator.html" . -}}
+<script>
+    function matchTags(page, term) {
+        for (let tag of page.tags) {
+            if (tag.includes(term)) return true;
+        }
+        return false;
+    }
+    function performSearch(term) {
+        document.getElementById('postlist').innerHTML = '';
+        term = term.toLowerCase();
+        fetch('/search/index.json').then(res => res.json())
+        .then(res => {
+            let articles = res.pages.filter(page => (
+                page.title.toLowerCase().includes(term) ||
+                matchTags(page, term) ||
+                page.text.includes(term)
+            ));
+            if (articles.length > 0) renderArticles(articles);
+            else document.getElementById('postlist').innerHTML = `
+                <h3>{{ i18n "noResultsFound" | safeJS }}</h3>
+            `;
+        });
+    }
+    var url = location.href;
+    var baseUrl = url.split('?')[0];
+    var searchbar = document.getElementById('searchbar');
+    if (url.includes('?')) {
+        var urlParams = new URLSearchParams(url.split('?')[1]);
+        if (urlParams.has('q')) {
+            let searchTerm = urlParams.get('q');
+            searchbar.value = searchTerm;
+            performSearch(searchTerm);
+        }
+    }
+</script>
+{{ end }}

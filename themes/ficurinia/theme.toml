@@ -1,0 +1,21 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "Hugo Ficurinia"
+license = "AGPL3"
+licenselink = "https://gitlab.com/gabmus/hugo-ficurinia/-/blob/master/LICENSE"
+description = "A prickly blog theme for Hugo"
+homepage = "https://gitlab.com/gabmus/hugo-ficurinia"
+tags = ["blog", "dark", "customizable", "simple"]
+features = ["posts", "shortcodes", "comments", "analytics"]
+
+logo = "/img/logo.png"
+
+[author]
+  name = "Gabriele Musco"
+  homepage = "https://gabmus.org"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.80.0"

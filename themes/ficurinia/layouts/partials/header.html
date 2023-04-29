@@ -1,0 +1,63 @@
+<header class="{{ if .IsHome }}jumbotronContainer{{ end }}">
+    {{- partial "inject/header-before.html" . -}}
+    <div class="titleAndSearchContainer">
+        <div id="titleContainer">
+            {{ if not (.Site.Params.logoRightOfTitle | default false) }}
+                <a class="unstyledLink" href="/">
+                    <img src='{{ .Site.Params.Logo | default "/logo.svg" }}' alt='{{ .Site.Params.LogoAltText | default "Logo" }}'/>
+                </a>
+            {{ end }}
+            <div class="rightOfLogo">
+                <div class="titleAndHamburger">
+                    <h1>
+                        <a class="unstyledLink" href="/">{{ .Site.Title | default "Ficurinia" }}</a>
+                        {{ if .Site.Params.logoRightOfTitle | default false }}
+                            <img src='{{ .Site.Params.Logo | default "/logo.svg" }}' alt='{{ .Site.Params.LogoAltText | default "Logo" }}'/>
+                        {{ end }}
+                    </h1>
+                    {{ if (.Site.Params.mobileHamburgerNav | default false) }}
+                        <label id="hamburger-menu" for="main-nav-toggler">
+                            &#xf85b;
+                        </label>
+                    {{ end }}
+                </div>
+                <div id="wide_nav">
+                    {{- partial "header_navigation.html" . -}}
+                </div>
+            </div>
+        </div>
+        {{ if and (.Site.Params.searchbarEverywhere | default true) (and (.Site.Params.enableSearch | default true) (not (eq .Title "Search"))) }}
+            {{- partial "searchbar.html" . -}}
+        {{ end }}
+    </div>
+    <div id="links">
+        {{ if .Site.Params.showRss | default true }}
+            {{- partial "iconlink" (dict "Identifier" "rss" "Name" "RSS" "URL" "/index.xml") -}}
+        {{ end }}
+        {{ range .Site.Params.links }}
+            {{- partial "nerdlink" . -}}
+        {{ end }}
+        {{ range .Site.Menus.icons }}
+            {{- partial "iconlink" . -}}
+        {{ end }}
+    </div>
+    {{ if and
+        (.Site.Params.enableSidebarLayout | default false)
+        (or
+            (not (.Site.Params.enableJumbotron | default false))
+            (not .IsHome)
+        )
+    }}
+        <div id="sidebar_nav">
+            {{- partial "header_navigation.html" . -}}
+        </div>
+        {{ if and .IsPage .Params.toc }}
+            <div class="sidebarToc">
+                <hr />
+                {{ .TableOfContents }}
+            </div>
+        {{ end }}
+    {{ end }}
+    {{- partial "inject/header-after.html" . -}}
+    {{- partial "jumbotron.html" . -}}
+</header>

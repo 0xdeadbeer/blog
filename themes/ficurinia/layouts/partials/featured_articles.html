@@ -1,0 +1,37 @@
+<div class="featured postlist gridView">
+{{ range . }}
+    {{ $image := "" }}
+    {{ if .Params.Image }}
+        {{ if or (hasPrefix .Params.Image "/") (hasPrefix .Params.Image "http://") (hasPrefix .Params.Image "https://") }}
+            {{ $image = .Params.Image }}
+        {{ else }}
+            {{ $image = print .Permalink "/" .Params.Image }}
+        {{ end }}
+    {{ end }}
+    <a class="featuredCardLink" href="{{ .Permalink }}">
+        <article class="featuredCard"
+            style="
+                background-image: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(0, 0, 0, 0.1) 45%,
+                    rgba(0, 0, 0, 0.7) 100%
+                ), url('{{ $image }}');
+        ">
+            <div class="contentArea">
+                <h2>{{ .Title }}</h2>
+                <p class="date">
+                    <span title='{{ i18n "date" }}'> </span>
+                    {{- partial "date.html" .Date -}}
+                    {{ if and (site.Params.tagsInArticlePreview | default true) .Params.tags }}
+                    <br />
+                    <span title='{{ i18n "tags" }}'> </span>
+                    {{ range sort .Params.tags }}
+                        #{{ . }}
+                    {{ end }}
+                {{ end }}
+                </p>
+            </div>
+        </article>
+    </a>
+{{ end }}
+</div>

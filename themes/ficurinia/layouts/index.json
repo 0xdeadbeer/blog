@@ -1,0 +1,38 @@
+{{ define "main" }}
+{
+    {{ $postsDir := .Site.Params.Posts | default (slice "posts" "post") }}
+    {{ $allPostsList := where .Site.RegularPages "Section" "in" $postsDir }}
+    {{ $featuredPostsList := slice }}
+    {{ $postsList := $allPostsList }}
+    {{ if .Site.Params.enableFeatured | default false }}
+        {{ $featuredPostsList = where $allPostsList "Params.featured" true }}
+        {{ $postsList = union (where $allPostsList "Params.featured" false) (where $allPostsList "Params.featured" nil) }}
+    {{ end }}
+    {{ $mscratch := newScratch }}
+    {{ $mscratch.Add "articles" slice }}
+    {{ range (.Paginate $postsList).Pages }}
+        {{ $image := "" }}
+        {{ if .Params.Image }}
+            {{ if or (hasPrefix .Params.Image "/") (hasPrefix .Params.Image "http://") (hasPrefix .Params.Image "https://") }}
+                {{ $image = .Params.Image }}
+            {{ else }}
+                {{ $image = print .Permalink "/" .Params.Image }}
+            {{ end }}
+        {{ end }}
+        {{ $mscratch.Add "articles" (dict
+            "title" .Title
+            "date" (.Date.Format "2006-01-02")
+            "tags" (sort (or .Params.tags slice))
+            "summary" (or .Params.description .Summary)
+            "link" .Permalink
+            "image" $image
+            "imageAlt" (or .Params.Alt "")) }}
+    {{ end }}
+    "articles": {{ $mscratch.Get "articles" | jsonify }},
+    "test": "{{range $postsList}}{{.Title}}   {{end}}",
+    "page": "{{ .Paginator.PageNumber }}",
+    "next": {{ if .Paginator.HasNext }}
+        {{ .Paginator.Next.URL | absURL | jsonify }}
+    {{ else }}""{{ end }}
+}
+{{ end }}

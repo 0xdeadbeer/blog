@@ -1,0 +1,8 @@
+{{ define "main" }}
+    {{ if in (site.Params.extraContentDirs | default (slice)) .Section }}
+        <h1>{{ .Section | humanize }}</h1>
+        {{- partial "home_post_list.html" (dict "Ctx" . "AllPostsList" .Pages) -}}
+    {{ else }}
+        {{- partial "simple_posts_list.html" . -}}
+    {{ end }}
+{{ end }}

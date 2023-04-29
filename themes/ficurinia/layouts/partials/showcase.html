@@ -1,0 +1,19 @@
+{{ if .Site.Params.showcaseDir }}
+{{ $showcasePosts := where site.RegularPages "Section" "in" .Site.Params.showcaseDir }}
+    <div class="postlist gridView">
+        {{ range (sort $showcasePosts "File.LogicalName") }}
+            {{ if in .File.Dir .Site.Params.showcaseDir }}
+                <article class="card postlistitem">
+                    <div>
+                        <h2>{{ .Title }}</h2>
+                        {{ if .Params.image }}
+                            <img src="{{ .Params.image }}" />
+                        {{ end }}
+                        <div>{{ .Content }}</div>
+                    </div>
+                </article>
+            {{ end }}
+        {{ end }}
+    </div>
+    <hr />
+{{ end }}
