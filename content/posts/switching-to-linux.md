@@ -2,10 +2,8 @@
 title: "Switching to Linux"
 date: 2023-04-08T15:44:15+02:00
 tags: ["linux"]
-draft: false
+image: /images/memes/linux_meme.png
 ---
-
-![Linux meme](/images/memes/linux_meme.png)
 
 **Classy meme, innit?**
 

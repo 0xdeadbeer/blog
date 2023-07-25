@@ -2,9 +2,8 @@
 title: "Outfucking All Cloud"
 date: 2023-04-17T18:29:38+02:00
 tags: ["internet", "internet security", "privacy"]
+image: /images/memes/fuck_cloud.png
 ---
-
-![Fuck coud](/images/memes/fuck_cloud.png)
 
 ## 0 Introduction
 

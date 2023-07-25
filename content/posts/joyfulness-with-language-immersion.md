@@ -2,11 +2,8 @@
 title: "Joyfulness With Language Immersion"
 date: 2023-05-28T12:59:12+02:00
 tags: ["language learning", "japanese", "self-improvement"]
+image: /images/japanese-media.png
 ---
-
-![Japanese media](/images/japanese-media.png)
-
---- 
 
 In this post I'd like to talk about one of the most (in my opinion) joyful moments you'll ever get when doing language immersion. 
 

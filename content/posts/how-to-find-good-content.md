@@ -2,10 +2,8 @@
 title: "Becoming an absolute tech geek"
 date: 2023-04-08T00:33:53+02:00
 tags: ["internet"]
-draft: false
+image: /images/hacker.jpg
 ---
-
-![Geek](/images/hacker.jpg)
 
 These days finding good content on the Internet is a real challenge. A lot of the times I find myself staring at the monitor wondering what I should search for, just to find that juicy content that goes into the detail of how something works, and also doesn't annoy me with all the bullshit ads, newsletters, and such.
 

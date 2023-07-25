@@ -2,9 +2,8 @@
 title: "Secure Linux Setup"
 date: 2023-04-12T11:53:13+02:00
 tags: ["linux", "internet security", "privacy"]
+image: /images/memes/oh_no.jpg
 ---
-
-![Oh not the Windows Operating System](/images/memes/oh_no.jpg)
 
 This post is dedicated to the ones that have been in the Linux game for years now or have just started experimenting, but don't have a very secure system. 
 But wait, what do I mean by *secure*? Well, a lot of factors come down to how secure your system is. **And by no means I'm claiming that this will 

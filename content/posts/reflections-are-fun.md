@@ -2,9 +2,8 @@
 title: "Reflections Are Fun"
 date: 2023-04-21T17:50:05+02:00
 tags: ["osint", "privacy"]
+image: /images/reflections.jpg
 ---
-
-![Reflections are fun](/images/reflections.jpg)
 
 Honestly, I have no idea if I'm going to come off as a creep by posing this, but I think that reflections are ~~fun~~ scary!
 

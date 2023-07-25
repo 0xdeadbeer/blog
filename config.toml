@@ -19,7 +19,7 @@ copyright = "Kevin Jerebica 2022"
     svgicon = "/logo-scaled.png"
     icon512 = "/logo-scaled.png"
 
-    imageInArticlePreview = true
+    imageInArticlePreview = false
 
 [menu]
     [[menu.icons]]

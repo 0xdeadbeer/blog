@@ -2,9 +2,8 @@
 title: "TLPI: Linux Signals"
 date: 2023-04-29T16:21:24+02:00
 tags: ["linux", "linux-programming-interface"]
+image: /images/TLPI.png
 ---
-
-![The Linux Programming Interface](/images/TLPI.png)
 
 ## 0 Introduction
 

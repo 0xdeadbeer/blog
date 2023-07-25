@@ -1,10 +1,9 @@
 ---
-title: "Its All About Books"
+title: "It's All About Books"
 date: 2023-04-09T00:46:11+02:00
 tags: ["knowledge"]
+image: /images/library.png
 ---
-
-![Japan library](/images/library.png)
 
 Everything started with walking, understanding what people around me were saying, recognizing the dangers that are out there, learning cultures, to eventually being broad to an institution that's supposed to teach me about *life* - school. That's where I was forced to read. Everyday, non stop, till I reached that deadline and had to write a summary of what I learned during that period. "Is this what life is all about?" I asked myself. "So I will be forced to read books and study topics that I've never seen being used in real life for the next 9 years (minimum)?"
 
