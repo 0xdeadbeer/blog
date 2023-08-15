@@ -1,7 +1,9 @@
 <script>
+    const tagsStr = '{{ i18n "tags" | safeJS }}'
+
     function renderTags(tags) {
         if (tags.length <= 0) return '';
-        let res = `| <span title='{{ i18n "tags" | safeJS }}'> </span>`;
+        let res = `| <span title=''> </span>`;
         for (let tag of tags) {
             //                                        regular space
             res += `<a href="/tags/${tag}">#${tag}</a>&#32;`;
@@ -13,6 +15,30 @@
         return `<a href="${link}"><img src="${image}" alt="${alt}" /></a>`;
     }
     function renderSingleArticle(article) {
+        {{ if (.Site.Params.tagsInArticlePreview | default true) }}
+        const tags = renderTags(article.tags)
+        {{ else }}
+        const tags = ''
+        {{ end }}
+
+        {{ if .Site.Params.imageInArticlePreview }}
+        const img = renderImage(article.image, article.link, article.imageAlt)
+        {{ else }}
+        const img = ''
+        {{ end }}
+
+        {{ if (site.Params.articleSummary | default true) }}
+        const continueReadingStr = '{{ i18n "continueReading" | safeJS }}'
+        const summ = `<div class="articlePreview">
+            <p>${article.summary}</p>
+            <p><a href="${article.link}">${continueReadingStr} </a></p>
+        </div>`
+        {{ else }}
+        const summ = ''
+        {{ end }}
+
+        const dateStr = '{{ i18n "date" | safeJS }}'
+
         return `
         <article class="card postlistitem">
             <div>
@@ -20,21 +46,12 @@
                     <a href="${article.link}">${article.title}</a>
                 </h2>
                 <p class="date">
-                    <span title='{{ i18n "date" | safeJS }}'> </span>
+                    <span title='${dateStr}'> </span>
                     ${article.date}
-                    {{ if (.Site.Params.tagsInArticlePreview | default true) }}
-                        ${renderTags(article.tags)}
-                    {{ end }}
+                    ${tags}
                 </p>
-                {{ if .Site.Params.imageInArticlePreview }}
-                    ${renderImage(article.image, article.link, article.imageAlt)}
-                {{ end }}
-                {{ if (site.Params.articleSummary | default true) }}
-                    <div class="articlePreview">
-                        <p>${article.summary}</p>
-                        <p><a href="${article.link}">{{ i18n "continueReading" | safeJS }} </a></p>
-                    </div>
-                {{ end }}
+                ${img}
+                ${summ}
             </div>
             <hr />
         </article>
