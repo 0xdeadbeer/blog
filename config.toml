@@ -8,7 +8,7 @@ defaultContentLanguage = "en"
 copyright = "Kevin Jerebica 2022"
 
 [params]
-    author = "Kevin Jerebica"
+    #author = "Kevin Jerebica"
     description = "Coding, Cyber Security, Unix, Psychology, Japan 🤍"
     posts = "posts"
 
@@ -20,6 +20,7 @@ copyright = "Kevin Jerebica 2022"
     icon512 = "/logo-scaled.png"
 
     imageInArticlePreview = false
+    showTags = false
 
 [menu]
     [[menu.icons]]

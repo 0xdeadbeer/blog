@@ -1,8 +1,8 @@
 [404message]
-other = "This is not the page you were looking for"
+other = "Ceci n'est pas la page que vous cherchez..."
 
 [searchbarTxt]
-other = "Search"
+other = "Chercher"
 
 [tags]
 other = "Tags"
@@ -11,40 +11,40 @@ other = "Tags"
 other = "Date"
 
 [continueReading]
-other = "Continue reading"
+other = "Continuer la lecture"
 
 [previousPage]
-other = "Previous page"
+other = "Page précédente"
 
 [nextPage]
-other = "Next page"
+other = "Page suivante"
 
 [shareOnTheFediverse]
-other = "Share on the Fediverse"
+other = "Partager sur Fediverse"
 
 [enterFediverseInstanceAddress]
-other = "Enter your instance's address"
+other = "Saisissez votre adresse d'instance"
 
 [fediverseInstanceExample]
 other = "Eg. mastodon.social"
 
 [cancel]
-other = "Cancel"
+other = "Annuler"
 
 [share]
-other = "Share"
+other = "Partager"
 
 [themeCopyrightNotice]
 other = ""
 
 [home]
-other = "Home"
+other = "Accueil"
 
 [posts]
 other = "Posts"
 
 [search]
-other = "Search"
+other = "Rechercher"
 
 [tagsColumn]
 other = "Tags:"
@@ -53,7 +53,7 @@ other = "Tags:"
 other = "Tag:"
 
 [morePostsLikeThis]
-other = "More posts like this"
+other = "Plus de posts comme celui-ci"
 
 [noResultsFound]
-other = "No results found"
+other = "Aucun résultat trouvé"

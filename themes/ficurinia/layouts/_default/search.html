@@ -7,7 +7,7 @@
 </div>
 {{- partial "js_paginator.html" . -}}
 <script>
-    const noResFoundStr = '{{ i18n "noResultsFound" | safeJS }}'
+    const noResFoundStr = {{ i18n "noResultsFound" }}
     function matchTags(page, term) {
         for (let tag of page.tags) {
             if (tag.includes(term)) return true;

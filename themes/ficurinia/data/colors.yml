@@ -1,12 +1,12 @@
 default: dark  # light
 auto_switch: false  # set to true to respect the user preference
 dark:
-  bg: '#0d0d0d'  # main site background
-  hl_bg: '#34363b'  # card and circle navigation background color for paper card mode
+  bg: '#000000'  # main site background
+  hl_bg: '#000000'  # card and circle navigation background color for paper card mode
   fg: 'white'  # font color
   dim_fg: '#bababa'  # will be used for secondary information like dates and tags
   stroke: '#4f4f4f'  # stroke/border color used mostly in the icon menu tooltip
-  accent: '#14ff99'  # pervasive accent color
+  accent: '#bdbdff'  # pervasive accent color
   sidebar:
     bg: '#34363b'  # sidebar background
     fg: 'white'  # sidebar font color
@@ -16,7 +16,7 @@ light:
   fg: '#262625'
   dim_fg: '#40403e'
   stroke: '#575754'
-  accent: '#14ff99'
+  accent: '#db5793'
   sidebar:
     bg: '#e6e6e6'
     fg: '#121211'
