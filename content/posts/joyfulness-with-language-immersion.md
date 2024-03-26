@@ -1,7 +1,7 @@
 ---
 title: "Joyfulness With Language Immersion"
 date: 2023-05-28T12:59:12+02:00
-tags: ["language learning", "japanese", "self-improvement"]
+tags: ["language_learning", "japanese", "self_improvement"]
 ---
 
 In this post I would like to talk about one of the most (in my opinion) joyful

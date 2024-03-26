@@ -1,7 +1,7 @@
 ---
 title: "Fun Spaced Repetition"
 date: 2023-07-25T16:23:26+02:00
-tags: ["sharing", "language learning", "knowledge"]
+tags: ["sharing", "language_learning", "knowledge"]
 ---
 
 ## Introduction
