@@ -1,0 +1,10 @@
+
+{{ define "main" }}
+  {{ .Content }}
+  {{ $postsDir := .Site.Params.Posts | default (slice "posts" "post") }}
+  {{ $allPostsList := where (where site.RegularPages "Section" "in" $postsDir) "Section" "!=" "" }}
+  {{ range $allPostsList }}
+    <h2><a class="title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary }} -- <b>truncated</b>
+  {{ end }}
+{{ end }}

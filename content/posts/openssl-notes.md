@@ -3,11 +3,11 @@ title: "OpenSSL Notes and Resources"
 date: 2024-02-24T17:35:10+01:00
 ---
 
-> **Note:** This article will get updates over time as I continue on reading the source code of the OpenSSL project.
+ - Note: This article will get updates over time as I continue on reading the source code of the OpenSSL project.
 
-> **Note:** These notes mainly cover the latest version at the time of updating this article. Currently, I am reading: v3.2.1
+ - Note: These notes mainly cover the latest version at the time of updating this article. Currently, I am reading: v3.2.1
 
-> **Note:** Notes are provided at my will and convenience. Keep in mind that it takes time for me to take notes and write articles. If you desire an even deeper understanding of the project, you are welcome to read the [source code](https://github.com/openssl/openssl), and if you can, [contributing to this article](https://github.com/0xdeadbeer/blog) would be greatly appreciated.
+ - Note: Notes are provided at my will and convenience. Keep in mind that it takes time for me to take notes and write articles. If you desire an even deeper understanding of the project, you are welcome to read the [source code](https://github.com/openssl/openssl), and if you can, [contributing to this article](https://github.com/0xdeadbeer/blog) would be greatly appreciated.
 
 ### Common structs
 

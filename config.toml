@@ -1,34 +1,5 @@
 baseURL = "https://0xdeadbeer.neocities.org"
-title = "0xdeadbeer"
-theme = "ficurinia"
+title = "Kevin J."
+theme = "minth"
 
-languageCode = "en"
-defaultContentLanguage = "en"
-
-copyright = "Kevin Jerebica 2022"
-
-[params]
-    #author = "Kevin Jerebica"
-    description = "Coding, Cyber Security, Unix, Psychology, Japan 🤍"
-    posts = "posts"
-
-    logo = "/logo-scaled.png"
-    favicon = "/logo-scaled.png"
-    faviconIco = "/logo-scaled.png"
-    appletouch = "/logo-scaled.png"
-    svgicon = "/logo-scaled.png"
-    icon512 = "/logo-scaled.png"
-
-    imageInArticlePreview = false
-    showTags = false
-
-[menu]
-    [[menu.icons]]
-        identifier = "github"
-        name = "Github"
-        url = "https://github.com/0xdeadbeer"
-        weight = 10
-    [[menu.icons]]
-        identifier = "youtube"
-        name = "Youtube"
-        url = "https://youtube.com/@0xdeadbeer"
+summaryLength = 20

@@ -1,0 +1,28 @@
+* {
+    background: #0F0F0F; 
+    color: #E6E6E6 !important;
+}
+
+.container {
+}
+
+a {
+    color: #b02352 !important;
+}
+
+a:hover {
+    color: #c93667 !important;
+}
+
+.title {
+    color: #d94848 !important;
+}
+
+code {
+    background: #333333;
+    padding: 2px;
+}
+
+img {
+    width: 100%;
+}
