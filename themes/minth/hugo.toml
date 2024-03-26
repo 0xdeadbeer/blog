@@ -8,17 +8,25 @@ pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
-weight = 30
+name = 'RSS'
+url = '/index.xml'
+weight = 20
 
 [[menus.main]]
 name = 'About'
 pageRef = '/pages/about-me'
+weight = 25
 
 [[menus.main]]
 name = 'Resources'
 pageRef = '/pages/resources'
+weight = 30
+
+[[menus.main]]
+name = 'Tags'
+pageRef = '/tags'
+weight = 35
+
 
 [module]
   [module.hugoVersion]
