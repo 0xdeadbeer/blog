@@ -3,3 +3,6 @@ title = "Kevin J."
 theme = "minth"
 
 summaryLength = 20
+
+[markup.goldmark.renderer]
+unsafe=true
