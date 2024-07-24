@@ -1,7 +1,6 @@
 ---
 title: "Outfucking All Cloud"
 date: 2023-04-17T18:29:38+02:00
-tags: ["internet", "internet_security", "privacy"]
 ---
 
 ## Introduction

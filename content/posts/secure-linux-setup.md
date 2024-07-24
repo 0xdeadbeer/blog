@@ -1,7 +1,6 @@
 ---
 title: "Secure Linux Setup"
 date: 2023-04-12T11:53:13+02:00
-tags: ["linux", "internet_security", "privacy"]
 ---
 
 This post is dedicated to the ones that have been in the Linux game for years

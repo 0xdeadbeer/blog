@@ -1,7 +1,6 @@
 ---
 title: "Weekend Reseach"
 date: 2023-11-12T11:56:14+01:00
-tags: ["sharing"]
 ---
 
 If anybody is going through this weekend endlessly searching for purpose, here

@@ -22,10 +22,10 @@ name = 'Resources'
 pageRef = '/pages/resources'
 weight = 30
 
-[[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
-weight = 35
+#[[menus.main]]
+#name = 'Tags'
+#pageRef = '/tags'
+#weight = 35
 
 
 [module]

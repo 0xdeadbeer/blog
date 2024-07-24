@@ -1,7 +1,6 @@
 ---
 title: "Resources"
 date: 2023-04-14T20:46:19+02:00
-tags: ["knowledge"]
 ---
 
 ## English Youtubers 

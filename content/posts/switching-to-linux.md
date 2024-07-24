@@ -1,7 +1,6 @@
 ---
 title: "Switching to Linux"
 date: 2023-04-08T15:44:15+02:00
-tags: ["linux"]
 ---
 
 Going from hearing about this word "Linux" from one of my computer geek

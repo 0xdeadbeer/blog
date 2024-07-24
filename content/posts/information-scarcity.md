@@ -1,7 +1,6 @@
 ---
 title: "Information Scarcity"
 date: 2024-03-01T21:55:39+01:00
-tags: ["internet", "internet_security"]
 ---
 
 I will not be picking battles between the extreme right or left side of the

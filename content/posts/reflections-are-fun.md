@@ -1,13 +1,10 @@
 ---
 title: "Reflections Are Fun"
 date: 2023-04-21T17:50:05+02:00
-tags: ["osint", "privacy"]
 ---
 
 Honestly, I have no idea if I am going to come off as a creep by posing this,
 but I think that reflections are ~~fun~~ scary!
-
---- 
 
 I am not sure how many people are aware of this, but I am going to share it
 anyway because it is a thing I kindof like doing while being bored. One day, I

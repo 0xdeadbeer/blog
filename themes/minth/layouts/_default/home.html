@@ -5,6 +5,6 @@
   {{ $allPostsList := where (where site.RegularPages "Section" "in" $postsDir) "Section" "!=" "" }}
   {{ range $allPostsList }}
     <h2><a class="title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }} -- <b>truncated</b>
+    {{ .Summary }}
   {{ end }}
 {{ end }}

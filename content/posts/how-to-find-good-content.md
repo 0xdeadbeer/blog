@@ -1,7 +1,6 @@
 ---
 title: "Good Content"
 date: 2023-04-08T00:33:53+02:00
-tags: ["internet"]
 ---
 
 These days finding good content on the internet is a real challenge. A lot of

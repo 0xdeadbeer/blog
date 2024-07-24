@@ -1,7 +1,6 @@
 ---
 title: "Black Clover & Japanese Language Immersion"
 date: 2023-08-15T16:49:55+02:00
-tags: ["japanese", "language_learning", "sharing", "knowledge"]
 ---
 
 Today I wanted to share my language learning experience of Black Clover. If
