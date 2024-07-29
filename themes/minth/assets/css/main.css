@@ -1,14 +1,33 @@
+html {
+    min-height: 100%;
+}
 body {
+  overflow-x: hidden;
   color: #222;
-  font-family: sans-serif;
   line-height: 1.5;
   margin: 1rem;
-  width: 100%; 
-  height: 100%;
+  font-family: monospace;
+  background: rgb(0,78,255);
+  background: linear-gradient(0deg, rgba(0,78,255,1) 0%, rgba(0,0,0,1) 100%);
+  background-size: contain;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+@media only screen and (min-width: 800px) {
+    .body {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .body {
+        font-size: 10px;
+    }
 }
 
 header {
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid #3b3b3b;
   margin-bottom: 1rem;
 }
 
@@ -18,6 +37,10 @@ footer {
 }
 
 a {
-  color: #00e;
-  text-decoration: none;
+  color: #3061ff !important;
+}
+
+hr {
+    color: white !important;
+    background-color: white !important;
 }
