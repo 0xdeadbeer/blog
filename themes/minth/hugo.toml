@@ -8,11 +8,6 @@ pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'RSS'
-url = '/index.xml'
-weight = 20
-
-[[menus.main]]
 name = 'About'
 pageRef = '/pages/about-me'
 weight = 25
@@ -21,6 +16,17 @@ weight = 25
 name = 'Resources'
 pageRef = '/pages/resources'
 weight = 30
+
+[[menus.main]]
+name = 'VPS'
+url = 'http://104.248.140.85/'
+weight = 35
+
+[[menus.main]]
+name = 'RSS'
+url = '/index.xml'
+weight = 40
+
 
 #[[menus.main]]
 #name = 'Tags'
