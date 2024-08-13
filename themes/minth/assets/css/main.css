@@ -7,10 +7,13 @@ body {
   line-height: 1.5;
   margin: 1rem;
   font-family: monospace;
-  background: rgb(0,78,255);
-  background: linear-gradient(0deg, rgba(0,78,255,1) 0%, rgba(0,0,0,1) 100%);
-  background-size: contain;
-  background-attachment: fixed;
+  background: rgb(0,58,155);
+  /*background: linear-gradient(0deg, rgba(0,78,255,1) 0%, rgba(0,0,0,1) 100%);
+  */
+  background-image: url('../hacker-manifesto-bg.jpg');
+  background-repeat: repeat;*/
+  /*background-size: contain;
+  background-attachment: fixed;*/
   margin: 0;
 }
 
@@ -37,7 +40,11 @@ footer {
 }
 
 a {
-  color: #3061ff !important;
+  color: #524f6e !important;
+}
+a:hover {
+  color: #6d6994 !important; 
+  text-shadow: 0px 0px 10px #685aed;
 }
 
 hr {
