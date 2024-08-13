@@ -18,8 +18,13 @@ pageRef = '/pages/resources'
 weight = 30
 
 [[menus.main]]
-name = 'VPS'
-url = 'http://104.248.140.85/'
+name = 'Git'
+url = 'http://git.0xdeadbeer.xyz/0xdeadbeer/'
+weight = 33
+
+[[menus.main]]
+name = 'Archive'
+url = 'http://archive.0xdeadbeer.xyz'
 weight = 35
 
 [[menus.main]]

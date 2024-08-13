@@ -10,7 +10,7 @@ freedom and so I primarily like to deal with free and open-source software
 solutions. Many of my ideas and goals come from my love towards space. I cannot
 stop dreaming about it. 
 
-VPS: [public knowledge archive](http://104.248.140.85/) | [self-hosted git](http://104.248.140.85:81/explore/repos) <br>
+VPS: [public knowledge archive](http://archive.0xdeadbeer.xyz/) | [self-hosted git](http://git.0xdeadbeer.xyz/0xdeadbeer) <br>
 Contact: jerebicakevin@gmail.com <br>
 YouTube: [@0xdeadbeer](https://youtube.com/@0xdeadbeer) <br>
 Github: [@0xdeadbeer](https://github.com/0xdeadbeer)
