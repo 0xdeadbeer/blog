@@ -11,10 +11,9 @@ body {
   /*background: linear-gradient(0deg, rgba(0,78,255,1) 0%, rgba(0,0,0,1) 100%);
   */
   background-image: url('../hacker-manifesto-bg.jpg');
-  background-repeat: repeat;*/
+  background-repeat: repeat;
   /*background-size: contain;
   background-attachment: fixed;*/
-  margin: 0;
 }
 
 @media only screen and (min-width: 800px) {

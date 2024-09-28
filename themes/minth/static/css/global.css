@@ -11,6 +11,11 @@
     color: white; 
 }
 
+pre code {
+    display: block;
+    background: black;
+}
+
 .post-title {
     font-size: 200px;
 }
@@ -86,3 +91,9 @@ code {
 img {
     width: 100%;
 }
+
+.code {
+    background: #ffffff !important;
+    color: black !important;
+}
+
