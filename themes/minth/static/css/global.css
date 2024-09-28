@@ -7,13 +7,14 @@
   background: white; 
 }
 
-* {
-    color: white; 
+
+code {
+    background: black !important;
+    color: white !important;
 }
 
 pre code {
     display: block;
-    background: black;
 }
 
 .post-title {
@@ -22,7 +23,7 @@ pre code {
 
 .container {
     margin: auto !important;
-    background: #0d0d0d !important;
+    background: #e8e6e6 !important;
     padding: 20px 20px;
 }
 
@@ -42,7 +43,7 @@ pre code {
 @media only screen and (min-width: 800px) {
     .container {
         max-width: 800px; 
-        border: 1px solid white;
+        border: 1px solid #303030;
     }
     .header .header-bg {
         font-size: 18px;
@@ -85,6 +86,7 @@ pre code {
 
 code {
     background: #333333;
+    color: white;
     padding: 2px;
 }
 
@@ -92,8 +94,4 @@ img {
     width: 100%;
 }
 
-.code {
-    background: #ffffff !important;
-    color: black !important;
-}
 

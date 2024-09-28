@@ -3,32 +3,32 @@ languageCode = 'en-us'
 title = 'My New Hugo Site'
 
 [[menus.main]]
-name = 'Home'
+name = 'home'
 pageRef = '/'
 weight = 10
 
 [[menus.main]]
-name = 'About'
+name = 'about'
 pageRef = '/pages/about-me'
 weight = 25
 
 [[menus.main]]
-name = 'Resources'
+name = 'resources'
 pageRef = '/pages/resources'
 weight = 30
 
 [[menus.main]]
-name = 'Git'
+name = 'git'
 url = 'http://git.0xdeadbeer.xyz/0xdeadbeer/'
 weight = 33
 
 [[menus.main]]
-name = 'Archive'
+name = 'archive'
 url = 'http://archive.0xdeadbeer.xyz'
 weight = 35
 
 [[menus.main]]
-name = 'RSS'
+name = 'rss'
 url = '/index.xml'
 weight = 40
 
