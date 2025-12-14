@@ -1,12 +1,11 @@
-
 {{ define "main" }}
-  {{ .Content }}
-  {{ $postsDir := .Site.Params.Posts | default (slice "posts" "post") }}
-  {{ $allPostsList := where (where site.RegularPages "Section" "in" $postsDir) "Section" "!=" "" }}
-  <p>posts:</p>
-  <ul>
-  {{ range $allPostsList }}
-  <li><a class="title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-  {{ end }}
-  </ul>
+    {{ .Content }}
+    {{ $postsDir := .Site.Params.Posts | default (slice "posts" "post") }}
+    {{ $allPostsList := where (where site.RegularPages "Section" "in" $postsDir) "Section" "!=" "" }}
+    <p>posts:</p>
+    <ul>
+    {{ range $allPostsList }}
+    <li><a class="title" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{ end }}
+    </ul>
 {{ end }}

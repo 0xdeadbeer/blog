@@ -2,12 +2,13 @@ html {
     min-height: 100%;
 }
 body {
-  overflow-x: hidden;
-  color: #222;
-  line-height: 1.5;
-  margin: 1rem;
-  font-family: monospace;
-  background: #d6d6d6;
+    padding: 0 !important;
+    overflow-x: hidden;
+    color: white;
+    line-height: 1.5;
+    font-family: monospace;
+    background: white;
+    margin: 0; 
 }
 
 @media only screen and (min-width: 800px) {
@@ -32,6 +33,7 @@ footer {
 }
 
 a {
+    color: black;
     opacity: .6;
 }
 a:hover {

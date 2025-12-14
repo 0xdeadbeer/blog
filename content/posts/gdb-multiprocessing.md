@@ -3,7 +3,7 @@ title: "Debugging multiprocessing software with GDB"
 date: 2024-09-28T14:33:17+02:00
 ---
 
-## <i>backstory</i>
+## <i>Backstory</i>
 
 Since ever I started the development of my high school finals project - [a proxy library](http://git.0xdeadbeer.xyz/0xdeadbeer/proxlib) - 
 I have had the desire to master the art of debugging multiprocessing software.
@@ -24,9 +24,9 @@ and deprecated for whatever reason.
 The frustration got me really close to taking initiative and writing myself a little patch for the modern versions of GDB
 so they would also have this useful feature. But something told me there had to be a better way. And oh boy, better way there was.
 
-## <i>start</i>
+## <i>Start</i>
 
-{{< highlight c "linenos=inline" >}}
+{{< highlight go-template "linenos=inline" >}}
 /* main.c */
 
 #include <stdio.h>
@@ -65,11 +65,11 @@ Before we continue, make sure you at least have the following setting enabled in
 A very convenient option that will block execution of both the parent and the new child - not 
 letting one of them run unless you manually call continue.
 
-## <i>following the parent</i>
+## <i>Following the parent</i>
 
 This scenario is unsurprisingly simple. GDB does this automatically, therefore, I will not cover it.
 
-{{<highlight bash-session>}}
+{{<highlight go-template "linenos=inline" >}}
 [hemisquare@detached-hemi tmp]$ gdb main
 (gdb) break main 
 Breakpoint 1 at 0x1161: file main.c, line 7.
@@ -95,11 +95,11 @@ $1 = 51915
 (gdb) # we are the parent
 {{</highlight>}}
 
-## <i>following the child</i>
+## <i>Following the child</i>
 
 Similar to the parent example, I will step until we hit the first fork syscall.
 
-{{<highlight bash-session>}}
+{{<highlight go-template "linenos=inline" >}}
 [hemisquare@detached-hemi tmp]$ gdb main 
 (gdb) break main
 Breakpoint 1 at 0x1161: file main.c, line 7.
@@ -126,7 +126,7 @@ Using host libthread_db library "/usr/lib/libthread_db.so.1".
 So, currently we are inside the parent "inferior". And inferior is just a GDB term for processes, threads, or whatever it is that you are debugging.
 Through forks, we create another inferior which we can switch to. As you can see, we now have two inferiors:
 
-{{<highlight bash-session>}}
+{{<highlight go-template "linenos=inline">}}
 (gdb) info inferiors
   Num  Description       Connection           Executable        
 * 1    process 52172     1 (native)           /home/hemisquare/tmp/main 
@@ -137,7 +137,7 @@ Through forks, we create another inferior which we can switch to. As you can see
 The '*' indicates the inferior we are currently residing in. Inferior 2 is the newborn child we just forked.
 Let's switch into the child!
 
-{{<highlight bash-session>}}
+{{<highlight go-template "linenos=inline" >}}
 (gdb) inferior 2 
 [Switching to inferior 2 [process 52175] (/home/hemisquare/tmp/main)]
 [Switching to thread 2.1 (Thread 0x7ffff7dab740 (LWP 52175))]
@@ -164,7 +164,7 @@ $1 = 0
 As you can see, here, we were able to step through the code of the child. Notice that the parent is still handing where we 
 left it at. It is totally okay to now switch back into the parent inferior and continue the execution from there.
 
-## <i>conclusion</i>
+## <i>Conclusion</i>
 
 Knowing this is essential for debugging my proxy library. I am thankful I now know GDB just a little better and was 
 hopefully able to provide you with a useful learning resource. I might extend this article in case I master more 
